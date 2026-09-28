@@ -1,0 +1,22 @@
+{
+  "name": "@calculogic/report-capture",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "Run a command, stream its output, and save a timestamped report with optional JSON metadata.",
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "src/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "calculogic-report-capture": "./src/report-capture.host.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}
