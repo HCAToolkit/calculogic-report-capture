@@ -2,11 +2,11 @@
 
 `@calculogic/report-capture` runs a command, streams its output to the terminal, and saves the combined stdout/stderr to a timestamped report file. With `--json`, it also prints one line of JSON metadata about the capture. It works with any command and has no dependencies beyond Node.js.
 
-This repository is the authoritative source for the tool. It was extracted from `calculogic-validator/tools/report-capture` in [`HCAToolkit/Calculogic_React_App`](https://github.com/HCAToolkit/Calculogic_React_App), keeping its commit history, because it has no dependency on the Validator and already serves more than one consumer. Migration tracking: [Calculogic_React_App#713](https://github.com/HCAToolkit/Calculogic_React_App/issues/713).
+This repository is the authoritative source for the tool. It was extracted from `calculogic-validator/tools/report-capture` in [`HCAToolkit/Calculogic_React_App`](https://github.com/HCAToolkit/Calculogic_React_App), keeping its commit history, because it has no dependency on the Validator and serves more than one consumer. The extraction and consumer migration were tracked in [Calculogic_React_App#713](https://github.com/HCAToolkit/Calculogic_React_App/issues/713), now complete.
 
 ## Current status
 
-- **Consumers:** [`HCAToolkit/calculogic-validator`](https://github.com/HCAToolkit/calculogic-validator) and [`HCAToolkit/Calculogic_React_App`](https://github.com/HCAToolkit/Calculogic_React_App). Both still use their own copy of this tool (`tools/report-capture` and the embedded `calculogic-validator/tools/report-capture`, respectively). Moving them onto this package happens in separate, later changes in those repositories.
+- **Consumers:** [`HCAToolkit/calculogic-validator`](https://github.com/HCAToolkit/calculogic-validator) and [`HCAToolkit/Calculogic_React_App`](https://github.com/HCAToolkit/Calculogic_React_App). Both consume this package as a pinned Git dependency (`@calculogic/report-capture` in `devDependencies`), and neither keeps its own copy: the Validator moved onto it in [calculogic-validator#29](https://github.com/HCAToolkit/calculogic-validator/pull/29), and the React app in [Calculogic_React_App#721](https://github.com/HCAToolkit/Calculogic_React_App/pull/721). Each consumer's `package.json` records the commit it pins.
 - **Distribution:** not published to the npm registry. Consumers pin a Git commit (see below). `"private": true` prevents accidental publication; it does not block Git installs.
 
 ## Install
